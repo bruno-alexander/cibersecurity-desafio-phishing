@@ -47,4 +47,5 @@
 
 ### Resultados
 
-![Alt text](./passwd.png "Optional title")
+![Alt text](./pagina-clonada.png "Optional title")
+![Alt text](./credenciais.png "Optional title")
